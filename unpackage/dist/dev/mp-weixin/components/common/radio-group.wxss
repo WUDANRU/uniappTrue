@@ -1,0 +1,13 @@
+
+.radio-active{
+	background:#FCE0D5!important;
+	color:#Eb7320!important;
+	border-color:#EB7320!important;
+}
+.a{
+	background:#007AFF
+}
+.uvi{
+	border-radius:10rpx;height:60rpx;line-height:60rpx;display:flex;margin:26rpx;justify-content:center;text-align: center;font-size:28rpx;background:#eaeaea;
+}
+

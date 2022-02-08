@@ -1,0 +1,42 @@
+<template>
+	<div>
+		<slider :auto-play="true" :interval="3000" class="slider">
+			<div style="position: relative;" v-for="(item,index) in swipers">
+				<image class="image" resize="" :src="item.src"></image>
+			</div>
+			<!-- resize有三个参数 -->
+			<!-- <div style="position: relative;"> indicator是绝对定位，每个image的外面需要包一层相对定位的div
+			<image class="image" resize="" src="../../static/images/demo/demo5.jpg"></image>
+			</div> -->
+			<indicator class="indicator"></indicator>
+		</slider>
+	</div>
+</template>
+
+<script>
+	export default {
+		props: {
+			swipers: Array
+		}
+	}
+</script>
+
+<style scoped>
+	.slider,
+	.image {
+		width: 750px;
+		height: 300px;
+	}
+
+	.indicator {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 150px;
+		height: 80px;
+		background-color: rgba(0, 0, 0, 0);
+		item-color: rgba(255, 255, 255, .5);
+		item-selected-color: #ffffff;
+		/* 选中颜色 */
+	}
+</style>

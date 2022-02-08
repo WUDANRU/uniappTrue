@@ -1,0 +1,111 @@
+<template>
+	<div>
+		<!-- 横向滚动顶部选项卡 -->
+		<div class="w-100" style="height:75px;">
+			<scroller class="w-100 flex-row" style="height:75px;" :show-scrollbar="false" scroll-direction="horizontal">
+				<div @click="change(index)" v-for="(item,index) in tabBars" :key="index" :ref="`tab${index}`"  style="height:75px;width:120px;" class="a-center j-center">
+					<text class="font-md text-muted" :style="{'color':tabIndex===index?'#FD6801':'#555','border-color':tabIndex===index?'#FD6801':'#FFFFFF'}" style="height:75px;line-height:75px;border-bottom-width:5px;border-style:solid;">{{item.name}}</text>
+				</div>
+			</scroller>
+		</div>
+		<!-- 横向滚动列表 -->
+		<slider class="flex-1" :index="tabIndex" :infinite="false" @change="sliderChange">
+			<div v-for="(item,index) in tabBars" :key="index">
+				<text class="font-lg">{{item.name}}</text>
+			</div>
+		</slider>
+	</div>
+</template>
+
+<script>
+	const dom=weex.requireModule('dom')
+	
+	export default {
+		data() {
+			return {
+				tabIndex: 0,
+				tabBars: [{
+						name: '推荐',
+						id:'guanzhu',
+						template:'index'
+					},
+					{
+						name: '体育'
+					},
+					{
+						name: '热点'
+					},
+					{
+						name: '财经'
+					},
+					{
+						name: '娱乐'
+					},
+					{
+						name: '军事'
+					},
+					{
+						name: '历史'
+					},
+					{
+						name: '本地'
+					},
+					{
+						name: '如果'
+					},
+					{
+						name: '是否'
+					},
+					{
+						name: '可以'
+					},
+					{
+						name: '行吗'
+					},
+				]
+		}
+	},
+	watch:{
+		// 监听tabIndex的变化
+		tabIndex(newValue,oldValue){
+			this.change(newValue)// 监听就可以拿到最新的索引值
+		}
+	},
+	methods:{
+		// 点击选项卡事件
+		change(index) {
+			// 改变当前选中
+			this.tabIndex = index
+			//监听滚动区域变化
+			// 拿到当前元素
+			let el=this.$refs[`tab${index}`][0]
+			// 获取当前元素的信息(节点信息)
+			dom.getComponentRect(el,(res)=>{ //.nvue文件不能无缝衔接，.vue文件可以
+				console.log(res)
+				// 处于右边（750是看到见宽度，有6个tabIndex,>750或<0就是看不见的）
+				if(res.size.right>750){
+					console.log(res.size.right,'大于750') //看了拼多多的是index-2并且是>650，课程是-4，-5可以定位再最后一个下标第5的位置
+					let newEl=this.$refs[`tab${index-4}`][0];//newEl：课程是让第7个(下标6)定位在第5(倒数第4,下标为4)的位置
+					// console.log(newEl,'newEl') //一共有8个，看的见的只有6个(下标0到5)，第七个下标是6，只执行1次
+					// 将节点滚动到最左边
+					dom.scrollToElement(newEl,{}) //newEl新的节点
+				}
+				// 处于左边
+				if(res.size.left<0){
+					console.log(res.size.left,'小于0')
+					dom.scrollToElement(el,{})
+				}
+			})
+		},
+		sliderChange(e){
+			// 监听横向滚动列表事件
+			// console.log(e) //e.index
+			this.tabIndex=e.index
+		}
+	}
+	}
+</script>
+
+<style src="@/common/zcm-main-nvue.css">
+
+</style>

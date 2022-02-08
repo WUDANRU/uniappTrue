@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['$emit',['clicked']]]]]}}" class="border m-1 p" style="{{'display:inline-flex;text-align:center;font-size:24rpx;'+(getStyle)}}" bindtap="__e">{{''+item.name+''}}</view>

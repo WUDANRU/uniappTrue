@@ -1,0 +1,115 @@
+<template>
+	<div style="display:flex;flex-direction:column;">
+		<!-- 这个横向滚动这块默认是垂直方向的，给它一个水平方向flex-row，没有水平方向flex-row的话数据出不来-->
+		<div class="w-100" style="height:75px;">
+			<scroller class="w-100 flex-row" style="height:75px;" :show-scrollbar="false" scroll-direction="horizontal">
+				<div style="height:75px;width:120px;" class="a-center j-center" v-for="(item,index) in tabBars"
+					:key="index" @click="change(index)">
+					<text style="height:75px;line-height:75px;border-bottom-width:5px;border-style:solid;"
+						:style="{'color':tabIndex===index?'#FD6801':'#555','border-color':tabIndex===index?'#FD6801':'#FFFFFF'}"
+						class="font-md text-muted">{{item.name}}</text>
+				</div>
+			</scroller>
+		</div>
+
+		<slider class="flex-1" :index="tabIndex" :infinite="false" @change="sliderChange">
+			<div v-for="(item,index) in tabBars" :key="index">
+				<text class="font-lg">{{item.name}}</text>
+			</div>
+		</slider>
+		<!-- 并不用去计算剩余屏幕高度，nvue页面是app也是有固定的高度的，class="flex-1"是剩余屏幕高度，即：1250px-75px-->
+		<!-- class="flex-1"，除去75px,剩下高度都被占满了 -->
+
+
+
+
+
+
+
+
+
+<!-- <div @click="openDetail"> fffvvv</div>
+<div>ggggggggg</div>
+
+
+<div>ggggggggg</div>
+<div @click="openDetailComment">aaaaaaaaa</div> -->
+	</div>
+	
+</template>
+
+<script>
+	// 监听当前窗口显示（这句可以放在created里，点击 又点击首页就能打印出'indexShow'）
+	// const currentWebview=plus.webview.currentWebview();
+
+	export default {
+		data() {
+			return {
+				tabIndex: 0,
+				tabBars: [{
+						name: '推荐'
+					},
+					{
+						name: '体育'
+					},
+					{
+						name: '热点'
+					},
+					{
+						name: '财经'
+					},
+					{
+						name: '娱乐'
+					},
+					{
+						name: '军事'
+					},
+					{
+						name: '历史'
+					},
+					{
+						name: '本地'
+					}
+				]
+			}
+		},
+		// onNavigationBarButtonTap(e) {
+		// 	console.log(e)
+		// },
+		onNavigationBarSearchInputClicked() {
+			console.log("-------")
+			uni.navigateTo({
+				url: '/pages/search/search', //nvue页面跳转到vue页面
+			});
+		},
+		methods: {
+			openDetail(){
+			uni.navigateTo({
+					// url:'/pages/detail/detail',
+					url:'/pages/login/login'
+				})	
+			},
+			openDetailComment(){
+			uni.navigateTo({
+					url:'/pages/detail-comment/detail-comment'
+
+				})	
+			},
+			// 点击选项卡事件
+			change(index) {
+				// 改变当前选中
+				this.tabIndex = index
+			},
+			// 监听横向滚动列表事件
+			// sliderChange(e){
+			// console.log(e) //e.index
+			// this.tabIndex=e.index
+			// }
+		},
+
+	}
+</script>
+
+<style src="@/common/zcm-main-nvue.css">
+
+</style>

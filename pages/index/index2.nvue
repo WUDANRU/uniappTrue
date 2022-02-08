@@ -1,0 +1,157 @@
+<template>
+	<div>
+		<!-- :show-scrollbar="false"是否显示滚动条 -->
+		<list :show-scrollbar="false">
+			<cell>
+				<!-- 轮播图组件 -->
+				<sum-slider :swipers="swipers" />
+				<!-- 图标分类组件 -->
+				<sum-index-navs :resdata="indexNavs" />
+				<divider />
+				<!-- 三图组件 -->
+				<sum-three-adv :resdata="threeAdv" />
+				<!-- 大图组件 -->
+				<sum-one-adv :resdata="oneAdv" />
+				
+				<div style="width:750rpx;" class="row">
+				<block v-for="(item,index) in list" :key="index">
+				<commonList :item="item" :index="index"></commonList>
+				</block>
+				</div>
+				
+			</cell>
+		</list>
+	</div>
+</template>
+
+<script>
+	import sumSlider from '@/components/nvue/sum-slider.nvue'
+	import sumIndexNavs from '@/components/nvue/sum-index-navs.nvue'
+	import divider from '@/components/common/divider.nvue'
+	import sumThreeAdv from '@/components/nvue/sum-three-adv.nvue'
+	import sumOneAdv from '@/components/nvue/sum-one-adv.nvue'
+	import commonList from "@/components/common/common-list.nvue";
+
+	export default {
+		components: {
+			sumSlider,
+			sumIndexNavs,
+			divider,
+			sumThreeAdv,
+			sumOneAdv,
+			commonList
+		},
+		data() {
+			return {
+				swipers: [{
+						src: "/static/images/demo/demo4.jpg"
+					},
+					{
+						src: "/static/images/demo/demo4.jpg"
+					}
+				],
+				indexNavs: [{
+						src: "../../static/indexnav/1.png",
+						name: "新品分类"
+					},
+					{
+						src: "../../static/indexnav/2.gif",
+						name: "小米众筹"
+					},
+					{
+						src: "../../static/indexnav/3.gif",
+						name: "以旧换新"
+					},
+					{
+						src: "../../static/indexnav/4.gif",
+						name: "1分拼团"
+					},
+					{
+						src: "../../static/indexnav/5.gif",
+						name: "超值特卖"
+					},
+					{
+						src: "../../static/indexnav/1.png",
+						name: "新品分类"
+					},
+					{
+						src: "../../static/indexnav/2.gif",
+						name: "小米众筹"
+					},
+					{
+						src: "../../static/indexnav/3.gif",
+						name: "以旧换新"
+					},
+					{
+						src: "../../static/indexnav/4.gif",
+						name: "1分拼团"
+					},
+					{
+						src: "../../static/indexnav/5.gif",
+						name: "超值特卖"
+					}
+				],
+				threeAdv: [{
+						cover: "/static/images/demo/demo1.jpg"
+					},
+					{
+						cover: "/static/images/demo/demo2.jpg"
+					},
+					{
+						cover: "/static/images/demo/demo3.jpg"
+					}
+				],
+				oneAdv: {
+					cover: "/static/images/demo/demo4.jpg",
+					title: "每日精选"
+				},
+				list:[
+					{cover:"/static/images/demo/list/5.jpg",
+					title:"小米空调",
+					desc:"1.5匹高频",
+					pprice:3699,
+					oprice:7999
+					},
+					{cover:"/static/images/demo/list/5.jpg",
+					title:"小米空调",
+					desc:"1.5匹高频",
+					pprice:3699,
+					oprice:7999
+					},
+					{cover:"/static/images/demo/list/5.jpg",
+					title:"小米空调",
+					desc:"1.5匹高频",
+					pprice:3699,
+					oprice:7999
+					},
+					{cover:"/static/images/demo/list/5.jpg",
+					title:"小米空调",
+					desc:"1.5匹高频",
+					pprice:3699,
+					oprice:7999
+					},
+					{cover:"/static/images/demo/list/5.jpg",
+					title:"小米空调",
+					desc:"1.5匹高频",
+					pprice:3699,
+					oprice:7999
+					},
+					{cover:"/static/images/demo/list/5.jpg",
+					title:"小米空调",
+					desc:"1.5匹高频",
+					pprice:3699,
+					oprice:7999
+					},
+				]
+			}
+		},
+		onShow() { //监听当前窗口显示
+			console.log('eeeee')
+		}
+	}
+</script>
+
+<style src="@/common/zcm-main-nvue.css"></style>
+
+<style>
+</style>

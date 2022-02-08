@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "card": "/components/uni-card",
+    "color-tag": "/components/common/color-tag",
+    "uni-list-item": "/components/uni-ui/uni-common/uni-list-item/uni-list-item"
+  }
+}

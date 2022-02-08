@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "card": "/components/card1",
+    "uni-list-item": "/components/uni-ui/uni-common/uni-list-item/uni-list-item"
+  }
+}

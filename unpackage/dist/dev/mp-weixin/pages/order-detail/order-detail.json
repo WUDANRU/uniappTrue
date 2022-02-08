@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "仿小米商城",
+  "usingComponents": {
+    "order-list-item": "/components/order-list-item",
+    "uni-list-item": "/components/uni-ui/uni-common/uni-list-item/uni-list-item",
+    "price": "/components/price",
+    "card": "/components/common/card",
+    "common-button": "/components/common-button"
+  }
+}

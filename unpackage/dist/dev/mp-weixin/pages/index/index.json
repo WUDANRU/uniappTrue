@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "swiper-image": "/components/swiper-image",
+    "uni-icons": "/components/uni-icons",
+    "three-adv": "/components/threeadv",
+    "card": "/components/uni-card",
+    "much-pic": "/components/much-pic"
+  }
+}

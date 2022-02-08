@@ -1,0 +1,57 @@
+<template>
+	<div>
+		<!--
+		 间隙：5px
+		 每列占375px
+		(实现间隔5px: padding-left: 2.5px;padding-right: 2.5px;| nvue页面text标签不能换行,换行就有间距 | 字占一行：style="lines: 1;)
+		 -->
+		<div @click="openDetail(item,index)" class="col-6 mb-1" style="padding-left:2.5px;padding-right:2.5px;">
+			<image :src="item.cover" class="common-list-cover" ></image>
+			<text class="font-md text-dark px-2 py-1 common-list-lines">{{item.title}}</text>
+			<text class="px-2 font text-light-muted common-list-lines">{{item.desc}}</text>
+
+			<div class="px-2 pt-1 row a-end">
+				<price>{{item.pprice}}</price>
+				<text class="ml-1" style="text-decoration:line-through;
+	color:#C0C0C0;">¥{{item.oprice}}</text>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<script>
+	import price from "@/components/common/price.nvue";
+	export default {
+		components: {
+			price
+		},
+		props: {
+			item: Object,
+			index: Number
+		},
+		methods: {
+			openDetail() {
+				uni.navigateTo({
+					url: '/pages/detail/detail?detail='+JSON.stringify(this.item)
+				});
+			}
+		}
+	}
+</script>
+
+<style src="@/common/zcm-main-nvue.css"></style>
+
+<style>
+	.common-list-cover {
+		width: 370px;
+		height: 370px;
+	}
+
+	.common-list-lines {
+		lines: 1;
+	}
+
+	/* align-self:flex-end; 
+(nvue页面css不支持注释掉的这个,支持align-items:flex-end;)*/
+</style>

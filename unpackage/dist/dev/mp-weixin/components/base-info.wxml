@@ -1,0 +1,1 @@
+<view class="p-2"><view class="font-sm">{{detail.title}}</view><view class="font-1 text-light-muted mb-1 line-h-md">{{detail.desc}}</view><price vue-id="61ce3667-1" unitSize="font-1" bind:__l="__l" vue-slots="{{['default']}}">{{showPrice}}</price></view>

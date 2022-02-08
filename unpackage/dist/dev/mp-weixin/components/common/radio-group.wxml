@@ -1,0 +1,1 @@
+<view class="row" style="font-size:20rpx;"><block wx:for="{{label.list}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="span24-8  mb"><view data-event-opts="{{[['tap',[['changeRadio',[index,'$0'],['label']]]]]}}" class="{{['uvi',label.selected===index?'radio-active':'']}}" bindtap="__e">{{''+item.name+''}}</view></view></block></view>

@@ -1,0 +1,30 @@
+<template>
+	<div>
+	<list> <!--  @pullingdown监听下拉了多少 --> -->
+			<refresh style="height:80px;" @refresh="refresh" @pullingdown="pullingdown" :display="show"> -->
+			<text> {{refreshtext}} </text>
+		</refresh>
+		<cell>
+			<div style="hedight:300px;background:#ccc;">ff{{refreshtext}}</div>
+		</cell>
+		<header>
+			<div style="hedight:300px;background:blue;">{{refreshtext}}</div>
+		</header>
+		</list>
+	</div>
+</template>
+
+<script>
+	export default {
+		data(){
+			return{
+				show:'hide',
+				refreshtext:'下拉可以刷新',
+				lists:['A','B','C','D','E']
+			}
+		},
+		methods:{
+			
+		}
+	}
+</script>

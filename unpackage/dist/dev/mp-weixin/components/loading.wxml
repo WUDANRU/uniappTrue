@@ -1,0 +1,1 @@
+<block wx:if="{{showload}}"><view class="position-fixed top-0 left-0 right-0 loading-model data-v-f8abd85e" style="bottom:20%;"><view class="spinner data-v-f8abd85e"><view class="double-bounce1 data-v-f8abd85e"></view><view class="double-bounce2 data-v-f8abd85e"></view></view></view></block>

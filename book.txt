@@ -1,0 +1,45 @@
+nvue只有px 没有百分比
+upx等同于rpx
+
+manifest.json-App常用其他设置-编译模式（取消v3编译器，选择week编译模式）
+
+nvue中css的注意事项
+1.单位只支持px,不支持em,rem,pt,%,upx
+2.宽度问题，高度问题  宽：750px=100%  高：1250px=100%
+3.默认flex布局
+4.不能合着写  ( margin:50px;或margin-left:50px能生效, margin:20px 50px;不能生效 )
+5.背景颜色只能用background-color
+6.选择器只支持单类  ( 单类就是每个标签都有类名  不能写.demo>div )
+7.引入要用<style src="@/common/nvue-common.css"></style>
+8.<div>组件默认是display:flex;flex-diration:column;flex-wrap:nowrap;
+生命周期跟vue的一样
+9.nvue页面css不支持这个align-self:flex-end; 支持align-items:flex-end;
+
+mainfest.json - app常用其他设置 - 选(v3编译器)和weex的nvue页面编译模式
+
+https://uniapp.dcloud.io/component/list 的 App nvue专用组件
+
+组件使用注意事项
+1.文字写在<text>中,而且<text>不能换行，否则文字看不见或者有间距
+2.<list>的子组件只能包括以下四种组件或者fix定位的组件 （ list里面不支持div里的内容，支持cell里的内容 ）
+<cell>:用于定义列表中的子列表向，类似于HTML中的ul之于li。weex会对<cell>进行高效的内存回收以达到更好的性能。
+<header>:当<header>到达屏幕顶部时，吸附在屏幕顶部。
+<refresh>:用于给列表添加下拉刷新的功能。
+<loading>:用法与特性和<refresh>类似，用于给列表添加上拉加载更多的功能
+3.图片要给指定宽高
+
+nvue和vue之间的通讯(一),现在不支持了
+1.在nvue使用uni.postMessage(data)发送数据通讯，data为JSON格式(键值对的值仅支持String)
+2.在App.vue里使用onUniNViewMessage进行监听
+
+vue和nvue共享的变量和数据
+nvue不支持vuex
+1. uni.storage 这个存储是持久化的，比如登录状态可以保存在这里
+2. globalData  在APP.vue文件里定义globalData，通过getApp().globalData获取数据
+
+app端(nvue页面)使用的官网：(nvue没有刷新api,地图api,没有滚动api用下面的链接的scroller)
+http://weex.emas-poc.com/zh/docs/components/slider.html#%E5%B1%9E%E6%80%A7
+
+user2 登录名
+zcmcss 密码
+search.vue搜索小米，跳转到search-list.vue才能打印出内容

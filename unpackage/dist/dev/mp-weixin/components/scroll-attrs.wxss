@@ -1,0 +1,8 @@
+
+.a{
+	display:inline-flex !important;
+}
+.b{
+	width:100% !important;white-space:nowrap !important;
+}
+

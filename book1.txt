@@ -1,0 +1,26 @@
+.slider,.image{
+	width:750px; /* nvue页面100%这样写 */
+	height:300px;
+}
+
+.indicator{
+	position:absolute;
+	right:0;
+	bottom:0;
+	width:150px;
+	height:80px;
+	background-color: rgba(0,0,0,0);
+	item-color:#333333; /* 默认颜色*/
+	item-selected-color:rgba(255,255,255,0.5); /* 选中颜色*/
+}
+
+<slider auto-play="true" interval="3000" class="slider">
+		<div v-for="(item,index) in resdata" :key="index" style="position: relative;">
+			<!-- resize有三个参数 -->
+			<image class="image" resize="cover" :src="item.src">
+			</image>
+		</div>
+		<indicator class="indicator"></indicator>
+	</slider>	
+
+<image class="image" resize="cover" :src="item.src">
